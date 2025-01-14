@@ -1,0 +1,7 @@
+# ansible-server/playbook.yml
+- hosts: node
+  tasks:
+    - name: Ensure Python is installed
+      apt:
+        name: python3
+        state: present
