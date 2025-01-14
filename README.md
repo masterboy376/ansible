@@ -71,13 +71,29 @@ ansible_python_interpreter=/usr/bin/python3
 Create a `playbook.yml` file in the `ansible-server` directory:
 
 ```yaml
+---
 # ansible-server/playbook.yml
 - hosts: node
+  become: true
+  vars:
+    ansible_become_pass: password
   tasks:
     - name: Ensure Python is installed
       apt:
         name: python3
         state: present
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+      notify:
+        - start nginx
+
+  handlers:
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
 ```
 
 ### 3. Build Docker Images
