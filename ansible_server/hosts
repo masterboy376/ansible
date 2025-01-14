@@ -1,0 +1,6 @@
+# ansible-server/hosts
+[node]
+ansible-node ansible_host=ansible-node ansible_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa ansible_port=2222
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
