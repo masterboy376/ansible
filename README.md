@@ -143,6 +143,23 @@ Run the playbook:
 docker exec -it ansible-server ansible-playbook /etc/ansible/playbook.yml
 ```
 
+Following output should appear:
+```
+PLAY [node] ********************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ansible-node]
+
+TASK [Ensure Python is installed] **********************************************
+ok: [ansible-node]
+
+TASK [Install nginx] ***********************************************************
+ok: [ansible-node]
+
+PLAY RECAP *********************************************************************
+ansible-node               : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+
 ## Troubleshooting
 
 ### Connection Issues
